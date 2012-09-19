@@ -19,3 +19,6 @@
 [submodule "fuel/packages/email"]
 	path = fuel/packages/email
 	url = git://github.com/fuel/email.git
+[submodule "fuel/app/vendor/Goutte"]
+	path = fuel/app/vendor/Goutte
+	url = git://github.com/fabpot/Goutte.git
