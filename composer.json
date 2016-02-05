@@ -26,7 +26,8 @@
         "fuelphp/upload": "2.0.2",
         "monolog/monolog": "1.5.*",
         "michelf/php-markdown": "1.4.0",
-        "fabpot/goutte": "^3.1"
+        "fabpot/goutte": "^3.1",
+        "guzzlehttp/guzzle": "^6.1"
     },
     "suggest": {
         "dwoo/dwoo" : "Allow Dwoo templating with the Parser package",
