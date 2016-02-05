@@ -7,6 +7,9 @@
  * @license    MIT License http://www.opensource.org/licenses/mit-license.php
  */
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Promise;
+
 /**
 * Upload Functional Tests
 *
@@ -63,22 +66,26 @@ class Test_Functional_Upload extends FunctionalTestCase
 		*/
 		
 		system("rm " . DOCROOT . 'public/uploads/drops*.png');
-		
-		$client = new \Guzzle\Http\Client(static::open('upload'));
-		
+
+		$client = new Client(['base_uri' => static::open('')]);
+
+		// Initiate each request but do not block
 		$expected = 20;  // 同時アクセス
-		$array = array();
 		for ($i = 0; $i < $expected; $i++)
 		{
-			$array[] = $client->post()
-					->addPostFields(array('name' => 'file'))
-					->addPostFiles(array(
-						'file' => APPPATH . 'tests/fixture/drops.png'
-					));
+			$promises[$i] = $client->postAsync('upload', [
+				'multipart' => [
+					[
+						'name'     => 'file',
+						'contents' => fopen(APPPATH.'tests/fixture/drops.png', 'r')
+					],
+				]
+			]);
 		}
 		
-		$responses = $client->send($array);
-		
+		// Wait on all of the requests to complete.
+		$results = Promise\unwrap($promises);
+
 		$test = system("ls " . DOCROOT . 'public/uploads/drops*.png | wc -l');
 		
 		$this->assertEquals($expected, $test);

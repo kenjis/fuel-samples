@@ -33,9 +33,9 @@ class Controller_Upload extends Controller
 					case 'jpg':
 					case 'png':
 					case 'gif':
-						//Debug::dump($file);
+//						Debug::dump($file); exit;
 						
-						$checkImage = getimagesize($file['file']);
+						$checkImage = getimagesize($file['tmp_name']);
 						$type = $checkImage[2];  // 画像タイプを取得
 						if ($checkImage === false)
 						{
