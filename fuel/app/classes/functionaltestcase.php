@@ -7,9 +7,6 @@
  * @license    MIT License http://www.opensource.org/licenses/mit-license.php
  */
 
-require_once APPPATH . 'vendor/Goutte/goutte.phar';
-//require_once APPPATH . 'vendor/Goutte/vendor/autoload.php';
-
 use Goutte\Client;
 
 abstract class FunctionalTestCase extends \Fuel\Core\TestCase
