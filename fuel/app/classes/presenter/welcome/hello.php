@@ -1,17 +1,17 @@
 <?php
 
 /**
- * The welcome hello view model.
+ * The welcome hello presenter.
  *
  * @package  app
- * @extends  ViewModel
+ * @extends  Presenter
  */
-class View_Welcome_Hello extends ViewModel
+class Presenter_Welcome_Hello extends Presenter
 {
 	/**
 	 * Prepare the view data, keeping this in here helps clean up
 	 * the controller.
-	 * 
+	 *
 	 * @return void
 	 */
 	public function view()
