@@ -2,9 +2,10 @@
 /**
  * FuelPHP 1.x Samples
  *
- * @author     Kenji Suzuki https://github.com/kenjis
+ * @author     Kenji Suzuki <https://github.com/kenjis>
+ * @license    MIT License <http://www.opensource.org/licenses/mit-license.php>
  * @copyright  2012 Kenji Suzuki
- * @license    MIT License http://www.opensource.org/licenses/mit-license.php
+ * @link       https://github.com/kenjis/fuel-samples
  */
 
 class Controller_Upload extends Controller
